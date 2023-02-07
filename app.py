@@ -72,13 +72,7 @@ def get_output():
              s="It is a Lung Opacity!"
         else:
              s="It is Normal!"
-        img = Image.open(img) 
-        data = io.BytesIO()
-        img.save(data, "JPEG")
-        encoded_img = base64.b64encode(data.getvalue())
-        decoded_img = encoded_img.decode('utf-8')
-        img_data = f"data:image/jpeg;base64,{decoded_img}"
-        return render_template("index.html", prediction = s, img_path=img_data)
+        return render_template("index.html", prediction = s)
 
 
 if __name__ =='__main__':
